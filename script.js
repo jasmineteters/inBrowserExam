@@ -22,47 +22,48 @@ let questions = [{
     choice2: "Microsoft",
     choice3: "Apple",
     choice4: "World Wide Web Consortium",
-    correct: choice4,
+    correct: "4",
 }, {
     q: "What does HTML stand for?",
     choice1: "Hyper Text Markup Language",
     choice2: "Hyperlinks and Text Markup Language",
     choice3: "Home Tool Markup Language",
     choice4: "How The Monsters Learn",
-    correct: choice1,
+    correct: "1",
 }, {
     q: "Who is making the Web Standards?",
     choice1: "Mozilla",
     choice2: "Microsoft",
     choice3: "Apple",
     choice4: "World Wide Web Consortium",
-    correct: choice4,
+    correct: "4",
 }, {
     q: "What does CSS stand for?",
     choice1: "Colorful Style Sheets",
     choice2: "Cascading Style Sheets",
     choice3: "Creative Style Sheets",
     choice4: "Computer Style Sheets",
-    correct: choice2,
+    correct: "2",
 }, {
     q: "What is the correct HTML for referring to an external style sheet?",
     choice1: "<stylesheet>mystyle.css</stylesheet>",
     choice2: '<style src="mystyle.css">',
     choice3: '<link rel="stylesheet" type-"text/css" href="mystyle.css"',
     choice4: 'See "mystylesheet.css"',
-    correct: choice3,
+    correct: "3",
 }, {
     q: "Where in an HTML document is the correct place to refer to an external style sheet?",
     choice1: "If they are in the same folder, you don't need to link it",
     choice2: "At the end of the document",
     choice3: "In the <head> section",
     choice4: "In the <body> section",
-    correct: choice3,
+    correct: "3",
 }]
 
 // Variables for indexing the questions submit button increments questionIndex + 1
 let qIndex = questions.length - 1;
 let runningQuestionIndex = 0;
+
 
 
 
