@@ -1,15 +1,17 @@
 // define all the elements
-var start = document.getElementsByClassName("start");
-var quiz = document.getElementsByClassName("quiz");
-var question = document.getElementsByClassName("question");
-var button1 = document.getElementsByClassName("1");
-var button2 = document.getElementsByClassName("2");
-var button3 = document.getElementsByClassName("3");
-var button4 = document.getElementsByClassName("4");
-var counter = document.getElementsByClassName("counter");
-var timeGauge = document.getElementsByClassName("time-gauge");
-var scoreDiv = document.getElementsByClassName("high-score-container");
+var startBtn = document.getElementById("startBtn");
+var quiz = document.getElementById("quiz");
+var question = document.getElementById("question");
+var button1 = document.getElementById("ans1");
+var button2 = document.getElementById("ans2");
+var button3 = document.getElementById("ans3");
+var button4 = document.getElementById("ans4");
+var counter = document.getElementById("counter");
+var timeGauge = document.getElementById("time-gauge");
+var scoreDiv = document.getElementById("high-score-container");
 var score = 0
+var count = 60
+
 
 
 // Here are the questions for the quiz in the form of an array
@@ -58,27 +60,32 @@ let questions = [{
 }]
 
 // Variables for indexing the questions 
-let lastQuestionIndex = questions.length - 1;
-let runningQuestionIndex = 0;
+// let lastQuestionIndex = questions.length - 1;
+// let runningQuestionIndex = 0;
 
 // Start the timer on the screen when the start button is pressed
-function startTimer() {
-    var count = 60,
-        timer = setInterval(function () {
-            timeGauge.text(count--);
-            if (count == 1) clearInterval(timer);
-        }, 1000);
-}
+// function startTimer()
 
 // Start button triggers the populating of questions
-function startGame() {
+// function startGame() {
 
-}
+
 
 // Start button event listener
-start.addEventListener("click", startTimer);
+startBtn.addEventListener("click", function () {
+    timer = setInterval(function () {
+        timeGauge.innerHTML = "Time: " + count--;
+        if (count == 1) clearInterval(timer);
+    }, 1000);
+})
 
-console.log(startTimer);
+
+
+
+
+
+
+
 
 // When they get the question right, advance to the next question
 
