@@ -11,63 +11,72 @@
 </head>
 
 <body>
+
     <!-- Header with "view Highscores and time" -->
+
     <nav class="nav">
         <a class="nav-link active col-lg-6 col-sm-6" href="#">View Highscores</a>
 
-        <p class="nav-link col-lg-6 col-sm-6 text-right" id="time-gauge">Time: </p>
+        <p class="nav-link col-lg-6 col-sm-6 text-right hide" id="time-gauge"> </p>
     </nav>
+
+
     <!-- Intro to the quiz, this should disappear after JavaScript is added and the start button is clicked! Also hidden after click -->
-    <div class="container text-center col-lg-5 col-sm-12 hide">
+
+    <div id="intro-div" class="container text-center col-lg-5 col-sm-12 ">
         <h1>Coding Quiz Challenge</h1>
         <p>Go through the set of questions and test your skills. Enter your initials at the end to see
             where you
-            rank amongst other coders! May the best coder win! Good Luck!</p>
+            rank amongst other coders! May the best coder win! <br> Good Luck!</p>
         <button href="#" class="btn btn-primary border-0" id="startBtn">Start Quiz</button>
     </div>
 
     <!-- Here is the "card" from bootstrap that I'm using to create the layout for the quiz. The Hide class should trigger it to hide on events -->
-    <div class="card border-0 hide ">
 
-        <div class="container col-lg-5 col-sm-12">
+    <div id="question-card" class="card border-0 hide ">
+
+        <div class="container col-lg-6 col-sm-12">
             <div class="card-body">
-                <h3 class="card-title bg-gradient-light text-center question">Question </h3>
+                <h3 class="card-title bg-gradient-light text-center" id="question"> </h3>
 
-                <a href="#" class="btn btn-primary border-0 ans1">1. </a></br>
-                <a href="#" class="btn btn-primary border-0 ans2">2. </a></br>
-                <a href="#" class="btn btn-primary border-0 ans3">3. </a></br>
-                <a href="#" class="btn btn-primary border-0 ans4">4. </a></br>
+                <button href="#" class="btn btn-primary border-0" id="ans1"> </button></br>
+                <button href="#" class="btn btn-primary border-0" id="ans2"> </button></br>
+                <button href="#" class="btn btn-primary border-0" id="ans3"> </button></br>
+                <button href="#" class="btn btn-primary border-0" id="ans4"> </button></br>
 
             </div>
         </div>
     </div>
 
+
     <!-- The game over screen will ask you to enter your initial and save your highscore.-->
-    <div class="container text-center col-lg-5 col-sm-12 hide score-container">
+
+    <div class="container text-center col-lg-5 col-sm-12 hide" id="score-container">
         <h2>All Done</h2>
-        <p class="counter"> Your Final Score is </p>
+        <p id="counter"> Your Final Score is </p>
         <form class="form-inline">
             <p class="m-2">Enter your initials</p>
             <input class="form-control mr-sm-2" type="text" placeholder="J.E.T." aria-label="Search">
             <button class="btn btn-primary my-2 my-sm-0 border-0" type="submit">Submit</button>
+        </form>
+    </div>
 
 
+    <!-- My JavaScript -->
 
-            <!-- My JavaScript -->
-            <script src="script.js"></script>
-            <!-- Bootstrap JavaScript -->
-            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-                    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-                    crossorigin="anonymous">
-            </script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-                    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-                    crossorigin="anonymous">
-            </script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-                    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-                    crossorigin="anonymous">
-            </script>
+    <script src="script.js"></script>
+
+    <!-- Bootstrap JavaScript -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>
