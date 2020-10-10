@@ -16,8 +16,12 @@
     font-size: 30px;
 }
 
-.new-score {
-    font-size: 14px;
+.score-text {
+    font-size: 18px;
+    color: #4527a0;
     text-align: center;
+}
 
+.start-again {
+    display: none;
 }

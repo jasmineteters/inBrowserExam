@@ -11,13 +11,12 @@ var scoreDiv = document.getElementById("score-container");
 var introDiv = document.getElementById("intro-div");
 var questionCard = document.getElementById("question-card");
 var submitInitialBtn = document.getElementById("submit-initials");
-var nums = document.getElementById("nums");
-var uInit = document.getElementById("user-initials");
 var userInitScore = document.getElementById("new-score");
-var userInfo = localStorage.getItem("data");
 var userHighScore = localStorage.getItem("score");
 var highScoresPage = document.getElementById("highscores-page");
 var initialSubmitForm = document.getElementById("submitted-initials");
+var hsHide = document.getElementById("hsHide");
+var startAgain = document.getElementById("start-again")
 
 
 var score = 0
@@ -26,10 +25,6 @@ var users = []
 
 
 
-// var newUser = {
-//     initialSubmitForm,
-//     count
-// };
 
 // Here are the questions for the quiz in the form of an array
 let questions = [{
@@ -76,12 +71,8 @@ let questions = [{
     correct: "In the <head> section",
 }]
 
-// Variables for indexing the questions submit button increments questionIndex + 1
+// Variable for indexing the questions submit button increments qIndex + 1
 let qIndex = 0;
-
-
-
-
 
 
 
@@ -100,6 +91,7 @@ startBtn.addEventListener("click", function () {
 function answersComplete() {
     scoreDiv.style.display = "block";
     questionCard.style.display = "none";
+    clearInterval(timer)
 }
 
 // adding the next quesiton in the array object
@@ -115,12 +107,10 @@ function nextQuestion() {
 // When they get the question right, advance to the next question When they get the question wrong, count = count - 5 subtract 5 seconds, advance to the next question
 function correctAnswer(userInput) {
     if (userInput === questions[qIndex].correct) {
-        console.log(userInput);
-        console.log(questions[qIndex].correct);
+
     } else {
         count = count - 5;
-        console.log(userInput);
-        console.log(questions[qIndex].correct);
+
     }
     qIndex++
     nextQuestion();
@@ -197,12 +187,12 @@ button4.addEventListener("click", function () {
 function showInitials() {
     console.log(users);
     JSON.parse(localStorage.getItem("users"));
-    var node = document.createElement("div");
-    // var textNode = document.textContent = (userInitScore);
-    node.textContent = "hi"
-    // node.appendChild(textNode);
-    // document.getElementById("highscores-page").appendChild(node);
-
+    var newDiv = document.createElement("div");
+    newDiv.className = 'text-center score-text';
+    var textNode = document.createTextNode(users);
+    newDiv.appendChild(textNode);
+    var currentDiv = document.getElementById("new-score");
+    document.body.insertBefore(newDiv, currentDiv);
 }
 
 function saveInitials(event) {
@@ -211,6 +201,8 @@ function saveInitials(event) {
     localStorage.setItem("score", count);
     scoreDiv.style.display = "none";
     highScoresPage.style.display = "block";
+    hsHide.style.display = "none"
+    startAgain.style.display = "block"
     users.push(initialSubmitForm.value, count)
     localStorage.setItem("users", JSON.stringify(users));
     showInitials();
@@ -221,27 +213,24 @@ function saveInitials(event) {
 submitInitialBtn.addEventListener("click", saveInitials);
 
 
-
-
-
-
-function submitInitial() {
-
-    localStorage.getItem("initials", initialSubmitForm.value);
-    localStorage.getItem("score", count);
+// start the game over again
+function startOver() {
+    location.reload();
 }
-// function showInitials() {
-//     // var dataToShow = localStorage.getItem("data");
-// userName.textContent = newUser.initials;
-// userScore.textContent = newUser.currentScore;
-// }
+startAgain.addEventListener("click", startOver)
 
-// submitInitialBtn.addEventListener("click", saveInitials);
+// veiw highscores again - needs some work still
+function viewHS() {
+    introDiv.style.display = "none"
+    localStorage.setItem("initials", initialSubmitForm.value);
+    localStorage.setItem("score", count);
+    scoreDiv.style.display = "none";
+    highScoresPage.style.display = "block";
+    hsHide.style.display = "none"
+    startAgain.style.display = "block"
+    users.push(initialSubmitForm.value, count)
+    localStorage.setItem("users", JSON.stringify(users));
+    showInitials();
+}
 
-// When they enter their initials, populate to the local to keep their score throughout the next games
-// function submitInitial() {
-//     localStorage.getItem("data", initialSubmitForm);
-//     localStorage.getItem("score", count);
-//     console.log(initialSubmitForm);
-//     console.log(count);
-// }
+hsHide.addEventListener("click", viewHS)
