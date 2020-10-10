@@ -10,3 +10,14 @@
 .hide {
     display: none;
 }
+
+.purple {
+    background-color: #4527a0;
+    font-size: 30px;
+}
+
+.new-score {
+    font-size: 14px;
+    text-align: center;
+
+}
